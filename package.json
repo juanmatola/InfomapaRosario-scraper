@@ -1,0 +1,15 @@
+{
+  "name": "infomaparosario-adresses-scraper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Juan Manuel Tola",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "puppeteer": "^13.0.1"
+  }
+}

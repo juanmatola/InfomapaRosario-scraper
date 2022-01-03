@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
 const colors = require('colors');
-const { getCoordinates } = require("./modules/getCoordinates");
+const { getData } = require("./modules/getData");
 const { saveResultsInJsonFile } = require("./modules/files/saveResultsInJsonFile");
 
 const URL = 'http://infomapa.rosario.gov.ar/emapa/mapa.htm';
@@ -10,13 +10,16 @@ const addresses = [ 'iriondo 2040', 'cerrito 2000', 'moreno 1025', 'entre rios 5
 
 (async () => {
   try {
+    
+    console.log(colors.green("Starting app"));
+
     const browser = await puppeteer.launch() ;
     const page = await browser.newPage();
     await page.goto(URL);
 
     let t1 = performance.now();
 
-    let results = await getCoordinates(page, addresses); 
+    let results = await getData(page, addresses); 
 
     await saveResultsInJsonFile(results);
     

@@ -1,17 +1,16 @@
 const colors = require('colors');
 const { convertToJSON } = require("./convertToJSON");
 
-async function getCoordinates(page, addresses) {
+async function getData(page, addresses) {
     const estimatedDelay = (addresses.length * 1.081);
+    console.log(">Expected run time: " + estimatedDelay + "s");
+    console.log(">Getting data... please wait\n");
 
     let results = {
         "founds": {},
         "notFounds": [],
     };
     let notFoundStack = [];
-
-    console.log(colors.green('Getting coordinates... \n'));
-    console.log(">Expected run time: " + estimatedDelay + "s \n");
 
     for (const address of addresses) {
 
@@ -45,4 +44,4 @@ async function getCoordinates(page, addresses) {
     return JSON.stringify(results);
 
 }
-exports.getCoordinates = getCoordinates;
+exports.getData = getData;
